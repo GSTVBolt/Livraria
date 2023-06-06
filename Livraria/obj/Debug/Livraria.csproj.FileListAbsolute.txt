@@ -1,0 +1,11 @@
+D:\Gustavo\Projetos\Livraria\Livraria\bin\Debug\Livraria.exe.config
+D:\Gustavo\Projetos\Livraria\Livraria\bin\Debug\Livraria.exe
+D:\Gustavo\Projetos\Livraria\Livraria\bin\Debug\Livraria.pdb
+D:\Gustavo\Projetos\Livraria\Livraria\obj\Debug\Livraria.csproj.AssemblyReference.cache
+D:\Gustavo\Projetos\Livraria\Livraria\obj\Debug\Livraria.csproj.SuggestedBindingRedirects.cache
+D:\Gustavo\Projetos\Livraria\Livraria\obj\Debug\Livraria.Login.resources
+D:\Gustavo\Projetos\Livraria\Livraria\obj\Debug\Livraria.Properties.Resources.resources
+D:\Gustavo\Projetos\Livraria\Livraria\obj\Debug\Livraria.csproj.GenerateResource.cache
+D:\Gustavo\Projetos\Livraria\Livraria\obj\Debug\Livraria.csproj.CoreCompileInputs.cache
+D:\Gustavo\Projetos\Livraria\Livraria\obj\Debug\Livraria.exe
+D:\Gustavo\Projetos\Livraria\Livraria\obj\Debug\Livraria.pdb
