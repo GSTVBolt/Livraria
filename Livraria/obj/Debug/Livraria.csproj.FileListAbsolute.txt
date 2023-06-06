@@ -9,3 +9,4 @@ D:\Gustavo\Projetos\Livraria\Livraria\obj\Debug\Livraria.csproj.GenerateResource
 D:\Gustavo\Projetos\Livraria\Livraria\obj\Debug\Livraria.csproj.CoreCompileInputs.cache
 D:\Gustavo\Projetos\Livraria\Livraria\obj\Debug\Livraria.exe
 D:\Gustavo\Projetos\Livraria\Livraria\obj\Debug\Livraria.pdb
+D:\Gustavo\Projetos\Livraria\Livraria\obj\Debug\Livraria.frmMenu.resources
