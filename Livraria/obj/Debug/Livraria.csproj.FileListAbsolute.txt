@@ -10,3 +10,4 @@ D:\Gustavo\Projetos\Livraria\Livraria\obj\Debug\Livraria.csproj.CoreCompileInput
 D:\Gustavo\Projetos\Livraria\Livraria\obj\Debug\Livraria.exe
 D:\Gustavo\Projetos\Livraria\Livraria\obj\Debug\Livraria.pdb
 D:\Gustavo\Projetos\Livraria\Livraria\obj\Debug\Livraria.frmMenu.resources
+D:\Gustavo\Projetos\Livraria\Livraria\obj\Debug\Livraria.principal.resources

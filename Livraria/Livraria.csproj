@@ -58,6 +58,12 @@
     <Compile Include="Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
     </Compile>
+    <Compile Include="principal.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="principal.Designer.cs">
+      <DependentUpon>principal.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="frmMenu.resx">
@@ -65,6 +71,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="principal.resx">
+      <DependentUpon>principal.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -96,6 +105,18 @@
     <None Include="Resources\user-icon.png" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Resources\logo-leitura.png" />
+    <None Include="Resources\logo-leitura1.png" />
+    <None Include="Resources\request.png" />
+    <None Include="Resources\request 2.png" />
+    <None Include="Resources\phone.png" />
+    <None Include="Resources\autor.png" />
+    <None Include="Resources\cash.png" />
+    <None Include="Resources\category.png" />
+    <None Include="Resources\client.png" />
+    <None Include="Resources\configuracoes.png" />
+    <None Include="Resources\design-editorial.png" />
+    <None Include="Resources\func.png" />
     <Content Include="Resources\lock-icon.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
