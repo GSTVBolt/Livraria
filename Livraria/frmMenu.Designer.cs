@@ -29,8 +29,6 @@
         private void InitializeComponent()
         {
             this.pneMenu = new System.Windows.Forms.Panel();
-            this.pneLogo = new System.Windows.Forms.Panel();
-            this.lbl_LivLeitura = new System.Windows.Forms.Label();
             this.btnCaixa = new System.Windows.Forms.Button();
             this.btnPedido = new System.Windows.Forms.Button();
             this.btnAutor = new System.Windows.Forms.Button();
@@ -40,6 +38,9 @@
             this.btnFone = new System.Windows.Forms.Button();
             this.btnCliente = new System.Windows.Forms.Button();
             this.btnFunc = new System.Windows.Forms.Button();
+            this.pneLogo = new System.Windows.Forms.Panel();
+            this.lbl_LivLeitura = new System.Windows.Forms.Label();
+            this.frmFuncionario1 = new Livraria.frmFuncionario();
             this.principal1 = new Livraria.principal();
             this.pneMenu.SuspendLayout();
             this.pneLogo.SuspendLayout();
@@ -61,31 +62,8 @@
             this.pneMenu.Dock = System.Windows.Forms.DockStyle.Left;
             this.pneMenu.Location = new System.Drawing.Point(0, 0);
             this.pneMenu.Name = "pneMenu";
-            this.pneMenu.Size = new System.Drawing.Size(220, 556);
+            this.pneMenu.Size = new System.Drawing.Size(220, 581);
             this.pneMenu.TabIndex = 0;
-            // 
-            // pneLogo
-            // 
-            this.pneLogo.BackColor = System.Drawing.SystemColors.Desktop;
-            this.pneLogo.Controls.Add(this.lbl_LivLeitura);
-            this.pneLogo.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pneLogo.Location = new System.Drawing.Point(0, 0);
-            this.pneLogo.Name = "pneLogo";
-            this.pneLogo.Size = new System.Drawing.Size(220, 87);
-            this.pneLogo.TabIndex = 0;
-            // 
-            // lbl_LivLeitura
-            // 
-            this.lbl_LivLeitura.AutoSize = true;
-            this.lbl_LivLeitura.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.lbl_LivLeitura.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_LivLeitura.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.lbl_LivLeitura.Location = new System.Drawing.Point(62, 18);
-            this.lbl_LivLeitura.Name = "lbl_LivLeitura";
-            this.lbl_LivLeitura.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.lbl_LivLeitura.Size = new System.Drawing.Size(96, 50);
-            this.lbl_LivLeitura.TabIndex = 1;
-            this.lbl_LivLeitura.Text = "Livraria\r\n   Leitura\r\n";
             // 
             // btnCaixa
             // 
@@ -258,6 +236,36 @@
             this.btnFunc.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnFunc.UseVisualStyleBackColor = true;
             // 
+            // pneLogo
+            // 
+            this.pneLogo.BackColor = System.Drawing.SystemColors.Desktop;
+            this.pneLogo.Controls.Add(this.lbl_LivLeitura);
+            this.pneLogo.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pneLogo.Location = new System.Drawing.Point(0, 0);
+            this.pneLogo.Name = "pneLogo";
+            this.pneLogo.Size = new System.Drawing.Size(220, 87);
+            this.pneLogo.TabIndex = 0;
+            // 
+            // lbl_LivLeitura
+            // 
+            this.lbl_LivLeitura.AutoSize = true;
+            this.lbl_LivLeitura.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.lbl_LivLeitura.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_LivLeitura.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.lbl_LivLeitura.Location = new System.Drawing.Point(62, 18);
+            this.lbl_LivLeitura.Name = "lbl_LivLeitura";
+            this.lbl_LivLeitura.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.lbl_LivLeitura.Size = new System.Drawing.Size(96, 50);
+            this.lbl_LivLeitura.TabIndex = 1;
+            this.lbl_LivLeitura.Text = "Livraria\r\n   Leitura\r\n";
+            // 
+            // frmFuncionario1
+            // 
+            this.frmFuncionario1.Location = new System.Drawing.Point(219, 0);
+            this.frmFuncionario1.Name = "frmFuncionario1";
+            this.frmFuncionario1.Size = new System.Drawing.Size(843, 746);
+            this.frmFuncionario1.TabIndex = 2;
+            // 
             // principal1
             // 
             this.principal1.Location = new System.Drawing.Point(219, 0);
@@ -269,7 +277,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1052, 556);
+            this.ClientSize = new System.Drawing.Size(1062, 581);
+            this.Controls.Add(this.frmFuncionario1);
             this.Controls.Add(this.principal1);
             this.Controls.Add(this.pneMenu);
             this.Name = "frmMenu";
@@ -297,5 +306,6 @@
         private System.Windows.Forms.Panel pneLogo;
         private System.Windows.Forms.Label lbl_LivLeitura;
         private principal principal1;
+        private frmFuncionario frmFuncionario1;
     }
 }
