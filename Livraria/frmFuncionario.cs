@@ -59,7 +59,10 @@ namespace Livraria
             txtLogin.Clear();
             txtSenha.Clear();
             txtBusca.Clear();
+            lblCodigo.Visible = false;
+            lblCod.Visible = false; 
             dgvFunc.DataSource = null;
+            rdbAtivo.Checked = true;
 
             txtNome.Focus();
         }
@@ -130,6 +133,7 @@ namespace Livraria
 
                     cn.Open();
                     cmd.ExecuteNonQuery();
+                    cmd.Parameters.Clear();
 
                     MessageBox.Show("Os dados foram gravados com sucesso !!!.",
                                     "Inserção de Dados Concluida", MessageBoxButtons.OK,
@@ -205,12 +209,33 @@ namespace Livraria
             txtSenha.Text = dgvFunc.SelectedRows[0].Cells[2].Value.ToString();
             txtNome.Text = dgvFunc.SelectedRows[0].Cells[3].Value.ToString();
 
+            string valor = dgvFunc.SelectedRows[0].Cells[4].Value.ToString();
+            //MessageBox.Show(valor);
+
+            if (valor == "True")
+            {
+                rdbAtivo.Checked = true;
+            }
+            else
+            {
+                rdbInativo.Checked = true;
+            }
+
             manipularDados();
         }
 
         private void dgvFunc_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             carregaAtendente();
+            txtBusca.Clear();
+            if (rdbAtivo.Checked)
+            {
+                btnExcluir.Enabled = true;
+            }
+            else
+            {
+                btnExcluir.Enabled = false;
+            }
         }
 
         private void btnAlterar_Click(object sender, EventArgs e)
@@ -265,13 +290,15 @@ namespace Livraria
 
                     cn.Open();
                     cmd.ExecuteNonQuery();
+                    cmd.Parameters.Clear();
 
                     MessageBox.Show("Os dados foram alterados com sucesso !!!.",
                                     "Alteração de Dados Concluida", MessageBoxButtons.OK,
                                     MessageBoxIcon.Information);
 
-                    txtSenha.Focus();
+                    txtNome.Focus();
                     limparCampos();
+                    desebalitaCampos();
                 }
                 catch (Exception ex)
                 {
@@ -281,6 +308,88 @@ namespace Livraria
                 finally
                 {
                     cn.Close();
+                }
+            }
+        }
+
+        private void btnExcluir_Click(object sender, EventArgs e)
+        {
+            if (txtNome.Text == "")
+            {
+                MessageBox.Show("Obrigatório informar o campo nome.",
+                                "Atenção", MessageBoxButtons.OK,
+                                MessageBoxIcon.Error);
+                txtNome.Focus();
+            }
+            else if (txtLogin.Text == "")
+            {
+                MessageBox.Show("Obrigatório informar o campo login.",
+                                "Atenção", MessageBoxButtons.OK,
+                                MessageBoxIcon.Error);
+                txtLogin.Focus();
+            }
+            else if (txtSenha.Text == "")
+            {
+                MessageBox.Show("Obrigatório informar o campo senha.",
+                                "Atenção", MessageBoxButtons.OK,
+                                MessageBoxIcon.Error);
+                txtSenha.Focus();
+            }
+            else if (txtSenha.Text.Length < 8)
+            {
+                MessageBox.Show("O campo senha deve conter no mínimo 8 digitos.",
+                                "Atenção", MessageBoxButtons.OK,
+                                MessageBoxIcon.Error);
+                txtSenha.Focus();
+            }
+            else if (rdbAtivo.Checked)
+            {
+                MessageBox.Show("Para remover o registro você precisa alterar o status para INATIVO.",
+                                "Erro ao tentar excluir", MessageBoxButtons.OK,
+                                MessageBoxIcon.Error);
+            }
+            else
+            {
+                DialogResult exclusao = MessageBox.Show("Você tem certeza que deseja remover este registro?",
+                                                        "Exclusão de registro", MessageBoxButtons.YesNo,
+                                                        MessageBoxIcon.Information);
+                if (exclusao == DialogResult.No)
+                {
+                    return;
+                }
+                else
+                {
+                    try
+                    {
+                        int status = Convert.ToInt32(lblCod.Text);
+                        string strSql = "update tbl_atendente set ds_status = 0 where cd_atendente = @status";
+
+                        cmd.CommandText = strSql;
+                        cmd.Connection = cn;
+
+                        cmd.Parameters.Add("@status", SqlDbType.Int).Value = status;
+
+                        cn.Open();
+                        cmd.ExecuteNonQuery();
+                        cmd.Parameters.Clear();
+
+                        MessageBox.Show("A exclusão foi executada com sucesso !!!.",
+                                        "Exclusão do Registro Concluida", MessageBoxButtons.OK,
+                                        MessageBoxIcon.Information);
+
+                        txtNome.Focus();
+                        limparCampos();
+                        desebalitaCampos();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                        cn.Close();
+                    }
+                    finally
+                    {
+                        cn.Close();
+                    }
                 }
             }
         }

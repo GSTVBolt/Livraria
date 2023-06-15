@@ -45,6 +45,9 @@
             this.btnExcluir = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.dgvFunc = new System.Windows.Forms.DataGridView();
+            this.lblStatus = new System.Windows.Forms.Label();
+            this.rdbAtivo = new System.Windows.Forms.RadioButton();
+            this.rdbInativo = new System.Windows.Forms.RadioButton();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFunc)).BeginInit();
             this.SuspendLayout();
@@ -100,7 +103,7 @@
             this.txtLogin.Location = new System.Drawing.Point(171, 169);
             this.txtLogin.MaxLength = 20;
             this.txtLogin.Name = "txtLogin";
-            this.txtLogin.Size = new System.Drawing.Size(262, 29);
+            this.txtLogin.Size = new System.Drawing.Size(165, 29);
             this.txtLogin.TabIndex = 4;
             // 
             // lblNome
@@ -120,7 +123,7 @@
             this.txtNome.Location = new System.Drawing.Point(171, 132);
             this.txtNome.MaxLength = 60;
             this.txtNome.Name = "txtNome";
-            this.txtNome.Size = new System.Drawing.Size(401, 29);
+            this.txtNome.Size = new System.Drawing.Size(434, 29);
             this.txtNome.TabIndex = 6;
             // 
             // label2
@@ -128,7 +131,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.label2.Location = new System.Drawing.Point(88, 206);
+            this.label2.Location = new System.Drawing.Point(352, 169);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(70, 24);
             this.label2.TabIndex = 7;
@@ -137,10 +140,10 @@
             // txtSenha
             // 
             this.txtSenha.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSenha.Location = new System.Drawing.Point(171, 206);
+            this.txtSenha.Location = new System.Drawing.Point(440, 169);
             this.txtSenha.MaxLength = 8;
             this.txtSenha.Name = "txtSenha";
-            this.txtSenha.Size = new System.Drawing.Size(262, 29);
+            this.txtSenha.Size = new System.Drawing.Size(165, 29);
             this.txtSenha.TabIndex = 8;
             this.txtSenha.UseSystemPasswordChar = true;
             // 
@@ -212,6 +215,7 @@
             this.btnExcluir.TabIndex = 15;
             this.btnExcluir.Text = "Excluir";
             this.btnExcluir.UseVisualStyleBackColor = true;
+            this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
             // 
             // btnCancelar
             // 
@@ -236,10 +240,48 @@
             this.dgvFunc.TabIndex = 17;
             this.dgvFunc.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.dgvFunc_MouseDoubleClick);
             // 
+            // lblStatus
+            // 
+            this.lblStatus.AutoSize = true;
+            this.lblStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblStatus.ForeColor = System.Drawing.SystemColors.Desktop;
+            this.lblStatus.Location = new System.Drawing.Point(94, 206);
+            this.lblStatus.Name = "lblStatus";
+            this.lblStatus.Size = new System.Drawing.Size(65, 24);
+            this.lblStatus.TabIndex = 18;
+            this.lblStatus.Text = "Status:";
+            // 
+            // rdbAtivo
+            // 
+            this.rdbAtivo.AutoSize = true;
+            this.rdbAtivo.Checked = true;
+            this.rdbAtivo.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rdbAtivo.Location = new System.Drawing.Point(171, 207);
+            this.rdbAtivo.Name = "rdbAtivo";
+            this.rdbAtivo.Size = new System.Drawing.Size(69, 28);
+            this.rdbAtivo.TabIndex = 19;
+            this.rdbAtivo.TabStop = true;
+            this.rdbAtivo.Text = "Ativo";
+            this.rdbAtivo.UseVisualStyleBackColor = true;
+            // 
+            // rdbInativo
+            // 
+            this.rdbInativo.AutoSize = true;
+            this.rdbInativo.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rdbInativo.Location = new System.Drawing.Point(255, 207);
+            this.rdbInativo.Name = "rdbInativo";
+            this.rdbInativo.Size = new System.Drawing.Size(81, 28);
+            this.rdbInativo.TabIndex = 20;
+            this.rdbInativo.Text = "Inativo";
+            this.rdbInativo.UseVisualStyleBackColor = true;
+            // 
             // frmFuncionario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.rdbInativo);
+            this.Controls.Add(this.rdbAtivo);
+            this.Controls.Add(this.lblStatus);
             this.Controls.Add(this.dgvFunc);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnExcluir);
@@ -286,5 +328,8 @@
         private System.Windows.Forms.Button btnExcluir;
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.DataGridView dgvFunc;
+        private System.Windows.Forms.Label lblStatus;
+        private System.Windows.Forms.RadioButton rdbAtivo;
+        private System.Windows.Forms.RadioButton rdbInativo;
     }
 }

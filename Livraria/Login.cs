@@ -55,7 +55,7 @@ namespace Livraria
                 {
                     cn.Open();
                     cmd.CommandText = "select * from tbl_atendente where ds_Login = ('" + txtLogin.Text + "') " +
-                                      "and ds_Senha = ('"+ txtSenha.Text +"')";
+                                      "and ds_Senha = ('"+ txtSenha.Text +"') and ds_status = 1";
                     cmd.Connection = cn;
                     dt = cmd.ExecuteReader();
 
