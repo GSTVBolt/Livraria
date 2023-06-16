@@ -26,7 +26,7 @@ namespace Livraria
         SqlCommand cmd = new SqlCommand();
         //SqlDataReader dt;
 
-        private void desebalitaCampos()
+        private void desabilitaCampos()
         {
             lblCodigo.Visible = false;
             lblCod.Visible = false;
@@ -67,9 +67,26 @@ namespace Livraria
             txtNome.Focus();
         }
 
+
+        private void manipularDados()
+        {
+            lblCodigo.Visible = true;
+            lblCod.Visible = true;
+
+            btnAlterar.Enabled = true;
+            btnCancelar.Enabled = true;
+            btnExcluir.Enabled = true;
+            btnNovo.Enabled = false;
+            btnSalvar.Enabled = false;
+
+            txtNome.Enabled = true;
+            txtLogin.Enabled = true;
+            txtSenha.Enabled = true;
+        }
+
         private void frmFuncionario_Load(object sender, EventArgs e)
         {
-            desebalitaCampos();
+            desabilitaCampos();
         }
 
         private void btnNovo_Click(object sender, EventArgs e)
@@ -79,7 +96,7 @@ namespace Livraria
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
-            desebalitaCampos();
+            desabilitaCampos();
             limparCampos();
         }
 
@@ -188,22 +205,6 @@ namespace Livraria
             }
         }
 
-        private void manipularDados()
-        {
-            lblCodigo.Visible = true;
-            lblCod.Visible = true;
-
-            btnAlterar.Enabled = true;
-            btnCancelar.Enabled = true;
-            btnExcluir.Enabled = true;
-            btnNovo.Enabled = false;
-            btnSalvar.Enabled = false;
-
-            txtNome.Enabled = true;
-            txtLogin.Enabled = true;
-            txtSenha.Enabled = true;
-        }
-
         private void carregaAtendente()
         {
             lblCod.Text = dgvFunc.SelectedRows[0].Cells[0].Value.ToString();  
@@ -300,7 +301,7 @@ namespace Livraria
                                     MessageBoxIcon.Information);
                     txtNome.Focus();
                     limparCampos();
-                    desebalitaCampos();
+                    desabilitaCampos();
                 }
                 catch (Exception ex)
                 {
@@ -381,7 +382,7 @@ namespace Livraria
 
                         txtNome.Focus();
                         limparCampos();
-                        desebalitaCampos();
+                        desabilitaCampos();
                     }
                     catch (Exception ex)
                     {

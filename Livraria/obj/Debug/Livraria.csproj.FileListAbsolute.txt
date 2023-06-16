@@ -12,3 +12,4 @@ D:\Gustavo\Projetos\Livraria\Livraria\obj\Debug\Livraria.pdb
 D:\Gustavo\Projetos\Livraria\Livraria\obj\Debug\Livraria.frmMenu.resources
 D:\Gustavo\Projetos\Livraria\Livraria\obj\Debug\Livraria.principal.resources
 D:\Gustavo\Projetos\Livraria\Livraria\obj\Debug\Livraria.frmFuncionario.resources
+D:\Gustavo\Projetos\Livraria\Livraria\obj\Debug\Livraria.frmCliente.resources

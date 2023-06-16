@@ -29,7 +29,10 @@
         private void InitializeComponent()
         {
             this.pneMenu = new System.Windows.Forms.Panel();
+            this.lblUserLog = new System.Windows.Forms.Label();
             this.lblUseText = new System.Windows.Forms.Label();
+            this.pneLogo = new System.Windows.Forms.Panel();
+            this.lbl_LivLeitura = new System.Windows.Forms.Label();
             this.btnSair = new System.Windows.Forms.Button();
             this.btnCaixa = new System.Windows.Forms.Button();
             this.btnPedido = new System.Windows.Forms.Button();
@@ -40,11 +43,9 @@
             this.btnFone = new System.Windows.Forms.Button();
             this.btnCliente = new System.Windows.Forms.Button();
             this.btnFunc = new System.Windows.Forms.Button();
-            this.pneLogo = new System.Windows.Forms.Panel();
-            this.lbl_LivLeitura = new System.Windows.Forms.Label();
+            this.frmCliente1 = new Livraria.frmCliente();
             this.frmFuncionario1 = new Livraria.frmFuncionario();
             this.principal1 = new Livraria.principal();
-            this.lblUserLog = new System.Windows.Forms.Label();
             this.pneMenu.SuspendLayout();
             this.pneLogo.SuspendLayout();
             this.SuspendLayout();
@@ -71,6 +72,16 @@
             this.pneMenu.Size = new System.Drawing.Size(220, 581);
             this.pneMenu.TabIndex = 0;
             // 
+            // lblUserLog
+            // 
+            this.lblUserLog.AutoSize = true;
+            this.lblUserLog.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUserLog.ForeColor = System.Drawing.Color.Yellow;
+            this.lblUserLog.Location = new System.Drawing.Point(42, 552);
+            this.lblUserLog.Name = "lblUserLog";
+            this.lblUserLog.Size = new System.Drawing.Size(0, 20);
+            this.lblUserLog.TabIndex = 12;
+            // 
             // lblUseText
             // 
             this.lblUseText.AutoSize = true;
@@ -81,6 +92,29 @@
             this.lblUseText.Size = new System.Drawing.Size(126, 20);
             this.lblUseText.TabIndex = 11;
             this.lblUseText.Text = "Usuário Logado:";
+            // 
+            // pneLogo
+            // 
+            this.pneLogo.BackColor = System.Drawing.SystemColors.Desktop;
+            this.pneLogo.Controls.Add(this.lbl_LivLeitura);
+            this.pneLogo.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pneLogo.Location = new System.Drawing.Point(0, 0);
+            this.pneLogo.Name = "pneLogo";
+            this.pneLogo.Size = new System.Drawing.Size(220, 87);
+            this.pneLogo.TabIndex = 0;
+            // 
+            // lbl_LivLeitura
+            // 
+            this.lbl_LivLeitura.AutoSize = true;
+            this.lbl_LivLeitura.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.lbl_LivLeitura.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_LivLeitura.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.lbl_LivLeitura.Location = new System.Drawing.Point(62, 18);
+            this.lbl_LivLeitura.Name = "lbl_LivLeitura";
+            this.lbl_LivLeitura.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.lbl_LivLeitura.Size = new System.Drawing.Size(96, 50);
+            this.lbl_LivLeitura.TabIndex = 1;
+            this.lbl_LivLeitura.Text = "Livraria\r\n   Leitura\r\n";
             // 
             // btnSair
             // 
@@ -253,6 +287,7 @@
             this.btnCliente.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnCliente.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnCliente.UseVisualStyleBackColor = true;
+            this.btnCliente.Click += new System.EventHandler(this.btnCliente_Click);
             // 
             // btnFunc
             // 
@@ -272,29 +307,14 @@
             this.btnFunc.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnFunc.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnFunc.UseVisualStyleBackColor = true;
+            this.btnFunc.Click += new System.EventHandler(this.btnFunc_Click);
             // 
-            // pneLogo
+            // frmCliente1
             // 
-            this.pneLogo.BackColor = System.Drawing.SystemColors.Desktop;
-            this.pneLogo.Controls.Add(this.lbl_LivLeitura);
-            this.pneLogo.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pneLogo.Location = new System.Drawing.Point(0, 0);
-            this.pneLogo.Name = "pneLogo";
-            this.pneLogo.Size = new System.Drawing.Size(220, 87);
-            this.pneLogo.TabIndex = 0;
-            // 
-            // lbl_LivLeitura
-            // 
-            this.lbl_LivLeitura.AutoSize = true;
-            this.lbl_LivLeitura.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.lbl_LivLeitura.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_LivLeitura.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.lbl_LivLeitura.Location = new System.Drawing.Point(62, 18);
-            this.lbl_LivLeitura.Name = "lbl_LivLeitura";
-            this.lbl_LivLeitura.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.lbl_LivLeitura.Size = new System.Drawing.Size(96, 50);
-            this.lbl_LivLeitura.TabIndex = 1;
-            this.lbl_LivLeitura.Text = "Livraria\r\n   Leitura\r\n";
+            this.frmCliente1.Location = new System.Drawing.Point(219, -8);
+            this.frmCliente1.Name = "frmCliente1";
+            this.frmCliente1.Size = new System.Drawing.Size(848, 620);
+            this.frmCliente1.TabIndex = 3;
             // 
             // frmFuncionario1
             // 
@@ -307,27 +327,19 @@
             // 
             this.principal1.Location = new System.Drawing.Point(219, 0);
             this.principal1.Name = "principal1";
-            this.principal1.Size = new System.Drawing.Size(829, 595);
+            this.principal1.Size = new System.Drawing.Size(843, 581);
             this.principal1.TabIndex = 1;
-            // 
-            // lblUserLog
-            // 
-            this.lblUserLog.AutoSize = true;
-            this.lblUserLog.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUserLog.ForeColor = System.Drawing.Color.Yellow;
-            this.lblUserLog.Location = new System.Drawing.Point(42, 552);
-            this.lblUserLog.Name = "lblUserLog";
-            this.lblUserLog.Size = new System.Drawing.Size(0, 20);
-            this.lblUserLog.TabIndex = 12;
             // 
             // frmMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1062, 581);
+            this.Controls.Add(this.frmCliente1);
             this.Controls.Add(this.frmFuncionario1);
             this.Controls.Add(this.principal1);
             this.Controls.Add(this.pneMenu);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmMenu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmMenu";
@@ -359,5 +371,6 @@
         private System.Windows.Forms.Button btnSair;
         private System.Windows.Forms.Label lblUseText;
         private System.Windows.Forms.Label lblUserLog;
+        private frmCliente frmCliente1;
     }
 }

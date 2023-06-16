@@ -15,6 +15,7 @@ namespace Livraria
         public frmMenu()
         {
             InitializeComponent();
+            principal1.BringToFront();
         }
 
         private void btnSair_Click(object sender, EventArgs e)
@@ -26,6 +27,15 @@ namespace Livraria
         private void frmMenu_Load(object sender, EventArgs e)
         {
             lblUserLog.Text = Login.usuario;
+        }
+
+        private void btnFunc_Click(object sender, EventArgs e)
+        {
+            frmFuncionario1.BringToFront();
+        }
+        private void btnCliente_Click(object sender, EventArgs e)
+        {
+            frmCliente1.BringToFront();
         }
     }
 }
