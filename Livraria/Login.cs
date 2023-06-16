@@ -18,13 +18,16 @@ namespace Livraria
             InitializeComponent();
         }
 
+        public static string usuario;
+        public static string codUsuario;
+
         // Esbalecendo conexao com o bdd sql server
 
         SqlConnection cn = new SqlConnection(@"Data Source=./;Initial Catalog=db_Livraria;User Id=sa;Password=C#&&JS");
 
         SqlCommand cmd = new SqlCommand();
 
-        SqlDataReader dt;
+        //SqlDataReader dt;
 
         private void btnFechar_Click(object sender, EventArgs e)
         {
@@ -57,10 +60,17 @@ namespace Livraria
                     cmd.CommandText = "select * from tbl_atendente where ds_Login = ('" + txtLogin.Text + "') " +
                                       "and ds_Senha = ('"+ txtSenha.Text +"') and ds_status = 1";
                     cmd.Connection = cn;
-                    dt = cmd.ExecuteReader();
+                    SqlDataAdapter da = new SqlDataAdapter(cmd);
+                    DataTable dtt = new DataTable();
 
-                    if (dt.HasRows)
+                    da.Fill(dtt);
+
+                    //dt = cmd.ExecuteReader();
+
+                    if (dtt.Rows.Count > 0) // a contagem de linhas no datable é maior que zero?
                     {
+                        codUsuario = dtt.Rows[0]["cd_Atendente"].ToString();
+                        usuario = dtt.Rows[0]["ds_Login"].ToString();
                         frmMenu menu = new frmMenu();
                         menu.Show();
                         this.Hide();

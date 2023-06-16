@@ -115,6 +115,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Resources\logo-leitura.png" />
+    <None Include="Resources\sair.png" />
     <None Include="Resources\logo-leitura1.png" />
     <None Include="Resources\request.png" />
     <None Include="Resources\request 2.png" />

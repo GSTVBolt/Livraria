@@ -113,6 +113,13 @@ namespace Livraria
                                 MessageBoxIcon.Error);
                 txtSenha.Focus();
             }
+            else if (rdbInativo.Checked)
+            {
+                MessageBox.Show("Impossível cadastrar um funcionário se o status estiver INATIVO.",
+                                "Erro ao tentar Salvar o registro", MessageBoxButtons.OK,
+                                MessageBoxIcon.Error);
+                txtSenha.Focus();
+            }
             else
             {
                 try
@@ -120,13 +127,10 @@ namespace Livraria
                     string login = txtLogin.Text;
                     string senha = txtSenha.Text;
                     string nome = txtNome.Text;
-
-                    string strSql = "insert into tbl_Atendente(ds_login, ds_senha, nm_atendente)" +
-                                 "values(@login, @senha, @atendente)";
-
+                    string strSql = "insert into tbl_Atendente(ds_login, ds_senha, nm_atendente, ds_status)" +
+                                    "values(@login, @senha, @atendente, 1)";
                     cmd.CommandText = strSql;
                     cmd.Connection = cn;
-
                     cmd.Parameters.Add("@login", SqlDbType.Char).Value = login;
                     cmd.Parameters.Add("@senha", SqlDbType.VarChar).Value = senha;
                     cmd.Parameters.Add("@atendente", SqlDbType.VarChar).Value = nome;
@@ -134,11 +138,9 @@ namespace Livraria
                     cn.Open();
                     cmd.ExecuteNonQuery();
                     cmd.Parameters.Clear();
-
                     MessageBox.Show("Os dados foram gravados com sucesso !!!.",
                                     "Inserção de Dados Concluida", MessageBoxButtons.OK,
                                     MessageBoxIcon.Information);
-
                     txtSenha.Focus();
                     limparCampos();
                 }
@@ -268,6 +270,12 @@ namespace Livraria
                                 MessageBoxIcon.Error);
                 txtSenha.Focus();
             }
+            else if (rdbInativo.Checked)
+            {
+                MessageBox.Show("Para INATIVAR um funcionário, é preciso clicar no botão REMOVER.",
+                                "Erro na operação", MessageBoxButtons.OK,
+                                MessageBoxIcon.Error);
+            }
             else
             {
                 try
@@ -276,26 +284,20 @@ namespace Livraria
                     string senha = txtSenha.Text;
                     string nome = txtNome.Text;
                     int codAtendente = Convert.ToInt32(lblCod.Text);
-
-                    string strSql = "update tbl_atendente set ds_login = @login, ds_senha = @senha, nm_atendente = @atendente " +
-                        "where cd_atendente = @cda";
-
+                    string strSql = "update tbl_atendente set ds_login = @login, ds_senha = @senha, nm_atendente = @atendente, " +
+                        " ds_status = 1 where cd_atendente = @cda";
                     cmd.CommandText = strSql;
                     cmd.Connection = cn;
-
                     cmd.Parameters.Add("@login", SqlDbType.Char).Value = login;
                     cmd.Parameters.Add("@senha", SqlDbType.VarChar).Value = senha;
                     cmd.Parameters.Add("@atendente", SqlDbType.VarChar).Value = nome;
                     cmd.Parameters.Add("@cda", SqlDbType.Int).Value = codAtendente;
-
                     cn.Open();
                     cmd.ExecuteNonQuery();
                     cmd.Parameters.Clear();
-
                     MessageBox.Show("Os dados foram alterados com sucesso !!!.",
                                     "Alteração de Dados Concluida", MessageBoxButtons.OK,
                                     MessageBoxIcon.Information);
-
                     txtNome.Focus();
                     limparCampos();
                     desebalitaCampos();

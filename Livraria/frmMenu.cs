@@ -16,5 +16,16 @@ namespace Livraria
         {
             InitializeComponent();
         }
+
+        private void btnSair_Click(object sender, EventArgs e)
+        {
+            Login login = new Login();
+            login.Show();
+            this.Hide();
+        }
+        private void frmMenu_Load(object sender, EventArgs e)
+        {
+            lblUserLog.Text = Login.usuario;
+        }
     }
 }
