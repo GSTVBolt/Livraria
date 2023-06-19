@@ -151,5 +151,109 @@ namespace Livraria
             desabilitaCampos();
             limparCampos();
         }
+
+        private void btnSalvar_Click(object sender, EventArgs e)
+        {
+            if(rdbInativo.Checked)
+            {
+                MessageBox.Show("Para gravar um cliente você precisa marcar o botão ATIVO",
+                                "Atenção", MessageBoxButtons.OK,
+                                MessageBoxIcon.Information);
+                rdbAtivo.Checked = true;
+            }
+            else if (txtNome.Text == "")
+            {
+                MessageBox.Show("Obrigatório informar o campo Nome.!",
+                                "Atenção", MessageBoxButtons.OK,
+                                MessageBoxIcon.Information);
+                txtNome.Focus();
+            }
+            else if (txtEmail.Text == "")
+            {
+                MessageBox.Show("Obrigatório informar o campo Email.!",
+                                "Atenção", MessageBoxButtons.OK,
+                                MessageBoxIcon.Information);
+                txtEmail.Focus();
+            }
+            else if (cbxPessoa.SelectedIndex == -1)
+            {
+                MessageBox.Show("Obrigatório informar o tipo de Pessoa.!",
+                                "Atenção", MessageBoxButtons.OK,
+                                MessageBoxIcon.Information);
+            }
+            else if (cbxPessoa.SelectedIndex == 0 && maskTxtCPF.Text.Length < 11)
+            {
+                    MessageBox.Show("Obrigatório informar um CPF válido.!",
+                                    "Atenção", MessageBoxButtons.OK,
+                                    MessageBoxIcon.Information);
+                    maskTxtCPF.Focus();
+            }
+            else if (cbxPessoa.SelectedIndex == 1 && maskTxtCNPJ.Text.Length < 14)
+            {
+                    MessageBox.Show("Obrigatório informar um CNPJ válido.!",
+                                    "Atenção", MessageBoxButtons.OK,
+                                    MessageBoxIcon.Information);
+                    maskTxtCNPJ.Focus();
+            }
+            else if (txtLograd.Text == "")
+            {
+                MessageBox.Show("Obrigatório informar o campo Logradouro.!",
+                                "Atenção", MessageBoxButtons.OK,
+                                MessageBoxIcon.Information);
+                txtLograd.Focus();
+            }
+            else if (txtCidade.Text == "")
+            {
+                MessageBox.Show("Obrigatório informar o campo Cidade.!",
+                                "Atenção", MessageBoxButtons.OK,
+                                MessageBoxIcon.Information);
+                txtCidade.Focus();
+            }
+            else if (maskTxtTel.Text == "")
+            {
+                MessageBox.Show("Obrigatório informar o campo Telefone.!",
+                                "Atenção", MessageBoxButtons.OK,
+                                MessageBoxIcon.Information);
+                maskTxtTel.Focus();
+            }
+            else if (maskTxtTel.Text.Length < 11)
+            {
+                MessageBox.Show("Obrigatório informar um Telefone válido.!",
+                                "Atenção", MessageBoxButtons.OK,
+                                MessageBoxIcon.Information);
+                maskTxtTel.Focus();
+            }
+            else if (txtNumero.Text == "")
+            {
+                MessageBox.Show("Obrigatório informar o campo Número do Logradouro.!",
+                                "Atenção", MessageBoxButtons.OK,
+                                MessageBoxIcon.Information);
+                txtNumero.Focus();
+            }
+            else if (txtBairro.Text == "")
+            {
+                MessageBox.Show("Obrigatório informar o campo Bairro.!",
+                                "Atenção", MessageBoxButtons.OK,
+                                MessageBoxIcon.Information);
+                txtBairro.Focus();
+            }
+            else if (maskTxtCEP.Text.Length < 8)
+            {
+                MessageBox.Show("Obrigatório informar o campo CEP.!",
+                                "Atenção", MessageBoxButtons.OK,
+                                MessageBoxIcon.Information);
+                maskTxtCEP.Focus();
+            }
+            else if (cbxUF.SelectedIndex == -1)
+            {
+                MessageBox.Show("Obrigatório informar o Estado.!",
+                                "Atenção", MessageBoxButtons.OK,
+                                MessageBoxIcon.Information);
+            }
+            else
+            {
+
+            }
+        }
     }
 }
