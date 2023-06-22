@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -16,6 +17,10 @@ namespace Livraria
         {
             InitializeComponent();
         }
+
+        SqlConnection cn = new SqlConnection(@"Data Source=./;Initial Catalog=db_Livraria;User Id=sa;Password=C#&&JS");
+
+        SqlCommand cmd = new SqlCommand();
 
         private void desabilitaCampos()
         {
@@ -252,7 +257,87 @@ namespace Livraria
             }
             else
             {
+               
+                try
+                {
+                    string nome = txtNome.Text;
+                    string email = txtEmail.Text;
+                    string cpf;
+                    string cnpj;
+                    string logradouro = txtLograd.Text;
+                    string numero = txtNumero.Text;
+                    string complemento = txtComplemt.Text;
+                    string bairro = txtBairro.Text;
+                    string cidade = txtCidade.Text;
+                    string uf = cbxUF.SelectedItem.ToString();
+                    string cep = maskTxtCEP.Text;
+                    string pessoa;
 
+                    if (cbxPessoa.SelectedIndex == 0)
+                    {
+                        pessoa = "F";
+                        cpf = maskTxtCPF.Text;
+                        cnpj = "";
+                    }
+                    else
+                    {
+                        pessoa = "J";
+                        cnpj = maskTxtCNPJ.Text;
+                        cpf = "";
+                    }
+
+                    string strSQL = "insert into tbl_cliente(nm_cliente, ds_email, no_cpf, no_cnpj, nm_logradouro, no_logradouro," +
+                                    "ds_complemento, nm_bairro, sg_uf, no_cep, nm_cidade, ds_pessoa, ds_status)" +
+                                    "values(@nm_Cliente, @ds_Email, @no_CPF, @no_CNPJ, @nm_Logradouro, @no_Logradouro," +
+                                    "@ds_Complemento, @nm_Bairro, @sg_UF, @no_CEP, @nm_Cidade, @ds_Pessoa, 1) " +
+                                    "set @cd = SCOPE_IDENTITY()";
+
+                    cmd.CommandText = strSQL;
+                    cmd.Connection = cn;
+
+                    cmd.Parameters.Add("@nm_Cliente", SqlDbType.VarChar).Value = nome;
+                    cmd.Parameters.Add("@ds_Email", SqlDbType.VarChar).Value = email;
+                    cmd.Parameters.Add("@no_CPF", SqlDbType.Char).Value = cpf;
+                    cmd.Parameters.Add("@no_CNPJ", SqlDbType.Char).Value = cnpj;
+                    cmd.Parameters.Add("@nm_Logradouro", SqlDbType.VarChar).Value = logradouro;
+                    cmd.Parameters.Add("@no_logradouro", SqlDbType.VarChar).Value = numero;
+                    cmd.Parameters.Add("@ds_Complemento", SqlDbType.VarChar).Value = complemento;
+                    cmd.Parameters.Add("@nm_Bairro", SqlDbType.VarChar).Value = bairro;
+                    cmd.Parameters.Add("@sg_UF", SqlDbType.Char).Value = uf;
+                    cmd.Parameters.Add("@no_CEP", SqlDbType.Char).Value = cep;
+                    cmd.Parameters.Add("@nm_Cidade", SqlDbType.VarChar).Value = cidade;
+                    cmd.Parameters.Add("@ds_Pessoa", SqlDbType.Char).Value = pessoa;
+                    cmd.Parameters.AddWithValue("@cd", 0).Direction = ParameterDirection.Output;
+
+                    cn.Open();
+                    cmd.ExecuteNonQuery();
+                    
+
+                    int cd = Convert.ToInt32(cmd.Parameters["@cd"].Value);
+                    string telefone = maskTxtTel.Text;
+
+                    cmd.CommandText = "insert into tbl_telefone(cd_Cliente, no_Telefone) values('" + cd + "', '" + telefone + "')";
+                    cmd.Connection = cn;
+
+                    cmd.ExecuteNonQuery();
+                    cmd.Parameters.Clear();
+
+                    MessageBox.Show("Os dados foram gravados com sucesso !!!.",
+                                       "Inserção de Dados Concluida", MessageBoxButtons.OK,
+                                       MessageBoxIcon.Information);
+
+                    cn.Close();
+                    limparCampos();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                    cn.Close();
+                }
+                finally
+                {
+                    cn.Close();
+                }
             }
         }
     }

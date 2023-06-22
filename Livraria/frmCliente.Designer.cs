@@ -117,6 +117,7 @@
             this.cbxUF.Name = "cbxUF";
             this.cbxUF.Size = new System.Drawing.Size(76, 32);
             this.cbxUF.TabIndex = 142;
+            this.cbxUF.TabStop = false;
             // 
             // cbxPessoa
             // 
@@ -129,6 +130,7 @@
             this.cbxPessoa.Name = "cbxPessoa";
             this.cbxPessoa.Size = new System.Drawing.Size(210, 32);
             this.cbxPessoa.TabIndex = 141;
+            this.cbxPessoa.TabStop = false;
             this.cbxPessoa.SelectedIndexChanged += new System.EventHandler(this.cbxPessoa_SelectedIndexChanged);
             // 
             // maskTxtCNPJ
@@ -139,6 +141,7 @@
             this.maskTxtCNPJ.Name = "maskTxtCNPJ";
             this.maskTxtCNPJ.Size = new System.Drawing.Size(165, 29);
             this.maskTxtCNPJ.TabIndex = 140;
+            this.maskTxtCNPJ.TabStop = false;
             this.maskTxtCNPJ.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
             this.maskTxtCNPJ.Visible = false;
             // 
@@ -150,6 +153,7 @@
             this.maskTxtCEP.Name = "maskTxtCEP";
             this.maskTxtCEP.Size = new System.Drawing.Size(165, 29);
             this.maskTxtCEP.TabIndex = 139;
+            this.maskTxtCEP.TabStop = false;
             this.maskTxtCEP.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
             // 
             // maskTxtCPF
@@ -170,6 +174,7 @@
             this.maskTxtTel.Name = "maskTxtTel";
             this.maskTxtTel.Size = new System.Drawing.Size(165, 29);
             this.maskTxtTel.TabIndex = 137;
+            this.maskTxtTel.TabStop = false;
             this.maskTxtTel.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
             // 
             // lblCNPJ
@@ -214,7 +219,7 @@
             this.txtBairro.Name = "txtBairro";
             this.txtBairro.Size = new System.Drawing.Size(165, 29);
             this.txtBairro.TabIndex = 133;
-            this.txtBairro.UseSystemPasswordChar = true;
+            this.txtBairro.TabStop = false;
             // 
             // lblBairro
             // 
@@ -235,7 +240,7 @@
             this.txtNumero.Name = "txtNumero";
             this.txtNumero.Size = new System.Drawing.Size(165, 29);
             this.txtNumero.TabIndex = 131;
-            this.txtNumero.UseSystemPasswordChar = true;
+            this.txtNumero.TabStop = false;
             // 
             // lblNumero
             // 
@@ -279,6 +284,7 @@
             this.txtCidade.Name = "txtCidade";
             this.txtCidade.Size = new System.Drawing.Size(210, 29);
             this.txtCidade.TabIndex = 127;
+            this.txtCidade.TabStop = false;
             // 
             // lblCidade
             // 
@@ -299,6 +305,7 @@
             this.txtComplemt.Name = "txtComplemt";
             this.txtComplemt.Size = new System.Drawing.Size(210, 29);
             this.txtComplemt.TabIndex = 125;
+            this.txtComplemt.TabStop = false;
             // 
             // lblComplemt
             // 
@@ -319,6 +326,7 @@
             this.txtLograd.Name = "txtLograd";
             this.txtLograd.Size = new System.Drawing.Size(210, 29);
             this.txtLograd.TabIndex = 123;
+            this.txtLograd.TabStop = false;
             // 
             // lblLograd
             // 
@@ -476,6 +484,7 @@
             this.txtNome.Name = "txtNome";
             this.txtNome.Size = new System.Drawing.Size(495, 29);
             this.txtNome.TabIndex = 109;
+            this.txtNome.TabStop = false;
             // 
             // lblNome
             // 
@@ -496,6 +505,7 @@
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(210, 29);
             this.txtEmail.TabIndex = 107;
+            this.txtEmail.TabStop = false;
             // 
             // lblEmail
             // 
