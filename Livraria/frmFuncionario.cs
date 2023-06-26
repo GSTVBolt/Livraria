@@ -197,6 +197,7 @@ namespace Livraria
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message);
+                    cn.Close();
                 }
             }
             else

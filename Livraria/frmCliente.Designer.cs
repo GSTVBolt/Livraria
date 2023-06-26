@@ -80,6 +80,7 @@
             this.txtBusca.Name = "txtBusca";
             this.txtBusca.Size = new System.Drawing.Size(489, 29);
             this.txtBusca.TabIndex = 12;
+            this.txtBusca.TextChanged += new System.EventHandler(this.txtBusca_TextChanged);
             // 
             // cbxUF
             // 
@@ -394,6 +395,7 @@
             this.dgvClient.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvClient.Size = new System.Drawing.Size(628, 114);
             this.dgvClient.TabIndex = 117;
+            this.dgvClient.DoubleClick += new System.EventHandler(this.dgvClient_DoubleClick);
             // 
             // btnCancelar
             // 
