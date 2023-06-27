@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.btnAlterar = new System.Windows.Forms.Button();
             this.lblCodLivro = new System.Windows.Forms.Label();
             this.lblCodigoLivro = new System.Windows.Forms.Label();
@@ -51,8 +52,16 @@
             this.txtTitulo = new System.Windows.Forms.TextBox();
             this.lblTitulo = new System.Windows.Forms.Label();
             this.lblLivro = new System.Windows.Forms.Label();
+            this.lblCateg = new System.Windows.Forms.Label();
+            this.lblEdit = new System.Windows.Forms.Label();
+            this.txtEdit = new System.Windows.Forms.TextBox();
+            this.cbxCateg = new System.Windows.Forms.ComboBox();
+            this.db_LivrariaDataSet1 = new Livraria.db_LivrariaDataSet1();
+            this.dbLivrariaDataSet1BindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dgvLivro)).BeginInit();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.db_LivrariaDataSet1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dbLivrariaDataSet1BindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // btnAlterar
@@ -65,6 +74,7 @@
             this.btnAlterar.TabIndex = 189;
             this.btnAlterar.Text = "Alterar";
             this.btnAlterar.UseVisualStyleBackColor = true;
+            this.btnAlterar.Click += new System.EventHandler(this.btnAlterar_Click);
             // 
             // lblCodLivro
             // 
@@ -109,6 +119,7 @@
             this.dgvLivro.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvLivro.Size = new System.Drawing.Size(604, 114);
             this.dgvLivro.TabIndex = 184;
+            this.dgvLivro.DoubleClick += new System.EventHandler(this.dgvLivro_DoubleClick);
             // 
             // groupBox1
             // 
@@ -130,6 +141,7 @@
             this.txtBusca.Name = "txtBusca";
             this.txtBusca.Size = new System.Drawing.Size(401, 29);
             this.txtBusca.TabIndex = 12;
+            this.txtBusca.TextChanged += new System.EventHandler(this.txtBusca_TextChanged);
             // 
             // txtISBN
             // 
@@ -298,10 +310,68 @@
             this.lblLivro.TabIndex = 163;
             this.lblLivro.Text = "Livros";
             // 
+            // lblCateg
+            // 
+            this.lblCateg.AutoSize = true;
+            this.lblCateg.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCateg.ForeColor = System.Drawing.SystemColors.Desktop;
+            this.lblCateg.Location = new System.Drawing.Point(55, 294);
+            this.lblCateg.Name = "lblCateg";
+            this.lblCateg.Size = new System.Drawing.Size(95, 24);
+            this.lblCateg.TabIndex = 191;
+            this.lblCateg.Text = "Categoria:";
+            // 
+            // lblEdit
+            // 
+            this.lblEdit.AutoSize = true;
+            this.lblEdit.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEdit.ForeColor = System.Drawing.SystemColors.Desktop;
+            this.lblEdit.Location = new System.Drawing.Point(76, 338);
+            this.lblEdit.Name = "lblEdit";
+            this.lblEdit.Size = new System.Drawing.Size(74, 24);
+            this.lblEdit.TabIndex = 194;
+            this.lblEdit.Text = "Editora:";
+            // 
+            // txtEdit
+            // 
+            this.txtEdit.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtEdit.Location = new System.Drawing.Point(166, 333);
+            this.txtEdit.MaxLength = 17;
+            this.txtEdit.Name = "txtEdit";
+            this.txtEdit.Size = new System.Drawing.Size(263, 29);
+            this.txtEdit.TabIndex = 195;
+            // 
+            // cbxCateg
+            // 
+            this.cbxCateg.DataSource = this.db_LivrariaDataSet1;
+            this.cbxCateg.DisplayMember = "tbl_Categoria.nm_Categoria";
+            this.cbxCateg.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbxCateg.FormattingEnabled = true;
+            this.cbxCateg.Location = new System.Drawing.Point(166, 294);
+            this.cbxCateg.Name = "cbxCateg";
+            this.cbxCateg.Size = new System.Drawing.Size(263, 32);
+            this.cbxCateg.TabIndex = 196;
+            this.cbxCateg.TabStop = false;
+            this.cbxCateg.ValueMember = "tbl_Categoria.cd_Categoria";
+            // 
+            // db_LivrariaDataSet1
+            // 
+            this.db_LivrariaDataSet1.DataSetName = "db_LivrariaDataSet1";
+            this.db_LivrariaDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // dbLivrariaDataSet1BindingSource
+            // 
+            this.dbLivrariaDataSet1BindingSource.DataSource = this.db_LivrariaDataSet1;
+            this.dbLivrariaDataSet1BindingSource.Position = 0;
+            // 
             // frmLivro
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.cbxCateg);
+            this.Controls.Add(this.txtEdit);
+            this.Controls.Add(this.lblEdit);
+            this.Controls.Add(this.lblCateg);
             this.Controls.Add(this.btnAlterar);
             this.Controls.Add(this.lblCodLivro);
             this.Controls.Add(this.lblCodigoLivro);
@@ -330,6 +400,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvLivro)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.db_LivrariaDataSet1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dbLivrariaDataSet1BindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -360,5 +432,11 @@
         private System.Windows.Forms.TextBox txtTitulo;
         private System.Windows.Forms.Label lblTitulo;
         private System.Windows.Forms.Label lblLivro;
+        private System.Windows.Forms.Label lblCateg;
+        private System.Windows.Forms.Label lblEdit;
+        private System.Windows.Forms.TextBox txtEdit;
+        private System.Windows.Forms.ComboBox cbxCateg;
+        private db_LivrariaDataSet1 db_LivrariaDataSet1;
+        private System.Windows.Forms.BindingSource dbLivrariaDataSet1BindingSource;
     }
 }

@@ -51,6 +51,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="db_LivrariaDataSet1.cs">
+      <DependentUpon>db_LivrariaDataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="db_LivrariaDataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>db_LivrariaDataSet1.xsd</DependentUpon>
+    </Compile>
     <Compile Include="frmCategoria.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -135,6 +143,17 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="db_LivrariaDataSet1.xsc">
+      <DependentUpon>db_LivrariaDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="db_LivrariaDataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>db_LivrariaDataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="db_LivrariaDataSet1.xss">
+      <DependentUpon>db_LivrariaDataSet1.xsd</DependentUpon>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

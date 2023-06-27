@@ -7,6 +7,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.UI.WebControls;
 using System.Windows.Forms;
 
 namespace Livraria
@@ -446,6 +447,332 @@ namespace Livraria
             else
             {
                 btnExcluir.Enabled = false;
+            }
+        }
+
+        private void btnAlterar_Click(object sender, EventArgs e)
+        {
+            if (rdbInativo.Checked)
+            {
+                MessageBox.Show("Para INATIVAR um cliente, é preciso clicar no botão REMOVER.",
+                                "Erro na operação", MessageBoxButtons.OK,
+                                MessageBoxIcon.Error);
+            }
+            else if (txtNome.Text == "")
+            {
+                MessageBox.Show("Obrigatório informar o campo Nome.!",
+                                "Atenção", MessageBoxButtons.OK,
+                                MessageBoxIcon.Information);
+                txtNome.Focus();
+            }
+            else if (txtEmail.Text == "")
+            {
+                MessageBox.Show("Obrigatório informar o campo Email.!",
+                                "Atenção", MessageBoxButtons.OK,
+                                MessageBoxIcon.Information);
+                txtEmail.Focus();
+            }
+            else if (cbxPessoa.SelectedIndex == -1)
+            {
+                MessageBox.Show("Obrigatório informar o tipo de Pessoa.!",
+                                "Atenção", MessageBoxButtons.OK,
+                                MessageBoxIcon.Information);
+            }
+            else if (cbxPessoa.SelectedIndex == 0 && maskTxtCPF.Text.Length < 11)
+            {
+                MessageBox.Show("Obrigatório informar um CPF válido.!",
+                                "Atenção", MessageBoxButtons.OK,
+                                MessageBoxIcon.Information);
+                maskTxtCPF.Focus();
+            }
+            else if (cbxPessoa.SelectedIndex == 1 && maskTxtCNPJ.Text.Length < 14)
+            {
+                MessageBox.Show("Obrigatório informar um CNPJ válido.!",
+                                "Atenção", MessageBoxButtons.OK,
+                                MessageBoxIcon.Information);
+                maskTxtCNPJ.Focus();
+            }
+            else if (txtLograd.Text == "")
+            {
+                MessageBox.Show("Obrigatório informar o campo Logradouro.!",
+                                "Atenção", MessageBoxButtons.OK,
+                                MessageBoxIcon.Information);
+                txtLograd.Focus();
+            }
+            else if (txtCidade.Text == "")
+            {
+                MessageBox.Show("Obrigatório informar o campo Cidade.!",
+                                "Atenção", MessageBoxButtons.OK,
+                                MessageBoxIcon.Information);
+                txtCidade.Focus();
+            }
+            else if (maskTxtTel.Text == "")
+            {
+                MessageBox.Show("Obrigatório informar o campo Telefone.!",
+                                "Atenção", MessageBoxButtons.OK,
+                                MessageBoxIcon.Information);
+                maskTxtTel.Focus();
+            }
+            else if (maskTxtTel.Text.Length < 11)
+            {
+                MessageBox.Show("Obrigatório informar um Telefone válido.!",
+                                "Atenção", MessageBoxButtons.OK,
+                                MessageBoxIcon.Information);
+                maskTxtTel.Focus();
+            }
+            else if (txtNumero.Text == "")
+            {
+                MessageBox.Show("Obrigatório informar o campo Número do Logradouro.!",
+                                "Atenção", MessageBoxButtons.OK,
+                                MessageBoxIcon.Information);
+                txtNumero.Focus();
+            }
+            else if (txtBairro.Text == "")
+            {
+                MessageBox.Show("Obrigatório informar o campo Bairro.!",
+                                "Atenção", MessageBoxButtons.OK,
+                                MessageBoxIcon.Information);
+                txtBairro.Focus();
+            }
+            else if (maskTxtCEP.Text.Length < 8)
+            {
+                MessageBox.Show("Obrigatório informar o campo CEP.!",
+                                "Atenção", MessageBoxButtons.OK,
+                                MessageBoxIcon.Information);
+                maskTxtCEP.Focus();
+            }
+            else if (cbxUF.SelectedIndex == -1)
+            {
+                MessageBox.Show("Obrigatório informar o Estado.!",
+                                "Atenção", MessageBoxButtons.OK,
+                                MessageBoxIcon.Information);
+            }
+            else
+            {
+                try
+                {
+                    int codCliente = Convert.ToInt32(lblCod.Text);
+                    string nome = txtNome.Text;
+                    string email = txtEmail.Text;
+                    string cpf;
+                    string cnpj;
+                    string logradouro = txtLograd.Text;
+                    string numero = txtNumero.Text;
+                    string complemento = txtComplemt.Text;
+                    string bairro = txtBairro.Text;
+                    string cidade = txtCidade.Text;
+                    string uf = cbxUF.SelectedItem.ToString();
+                    string cep = maskTxtCEP.Text;
+                    string pessoa;
+
+                    if (cbxPessoa.SelectedIndex == 0)
+                    {
+                        pessoa = "F";
+                        cpf = maskTxtCPF.Text;
+                        cnpj = "";
+                    }
+                    else
+                    {
+                        pessoa = "J";
+                        cnpj = maskTxtCNPJ.Text;
+                        cpf = "";
+                    }
+
+                    string strSQL = "update tbl_Cliente set nm_Cliente = @nm_Cliente, ds_Email = @ds_Email, no_CPF = @no_CPF, no_CNPJ = @no_CNPJ," +
+                                    "nm_Logradouro = @nm_Logradouro, no_Logradouro = @no_Logradouro, ds_Complemento = @ds_Complemento," +
+                                    "nm_Bairro = @nm_Bairro, sg_UF = @sg_UF, no_CEP = @no_CEP, ds_Status = 1, nm_Cidade = @nm_Cidade," +
+                                    "ds_Pessoa = @ds_Pessoa where cd_Cliente = @cde"; 
+                                    
+
+                    cmd.CommandText = strSQL;
+                    cmd.Connection = cn;
+
+                    cmd.Parameters.Add("@nm_Cliente", SqlDbType.VarChar).Value = nome;
+                    cmd.Parameters.Add("@ds_Email", SqlDbType.VarChar).Value = email;
+                    cmd.Parameters.Add("@no_CPF", SqlDbType.Char).Value = cpf;
+                    cmd.Parameters.Add("@no_CNPJ", SqlDbType.Char).Value = cnpj;
+                    cmd.Parameters.Add("@nm_Logradouro", SqlDbType.VarChar).Value = logradouro;
+                    cmd.Parameters.Add("@no_logradouro", SqlDbType.VarChar).Value = numero;
+                    cmd.Parameters.Add("@ds_Complemento", SqlDbType.VarChar).Value = complemento;
+                    cmd.Parameters.Add("@nm_Bairro", SqlDbType.VarChar).Value = bairro;
+                    cmd.Parameters.Add("@sg_UF", SqlDbType.Char).Value = uf;
+                    cmd.Parameters.Add("@no_CEP", SqlDbType.Char).Value = cep;
+                    cmd.Parameters.Add("@nm_Cidade", SqlDbType.VarChar).Value = cidade;
+                    cmd.Parameters.Add("@ds_Pessoa", SqlDbType.Char).Value = pessoa;
+                    cmd.Parameters.Add("@cde", SqlDbType.Int).Value = codCliente;
+
+                    cn.Open();
+                    cmd.ExecuteNonQuery();
+                    cmd.Parameters.Clear();
+
+                    string telefone = maskTxtTel.Text;
+
+                    cmd.CommandText = "update tbl_telefone set no_Telefone = @no_Telefone";
+                    cmd.Connection = cn;
+
+                    cmd.Parameters.Add("@no_Telefone", SqlDbType.VarChar).Value = telefone;
+
+                    cmd.ExecuteNonQuery();
+                    cmd.Parameters.Clear();
+
+                    MessageBox.Show("Os dados foram alterados com sucesso !!!.",
+                                    "Alteração de Dados Concluida", MessageBoxButtons.OK,
+                                    MessageBoxIcon.Information);
+                    txtNome.Focus();
+                    limparCampos();
+                    desabilitaCampos();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                    cn.Close();
+                }
+                finally
+                {
+                    cn.Close();
+                }
+            }
+        }
+        private void btnExcluir_Click(object sender, EventArgs e)
+        {
+            if (rdbAtivo.Checked)
+            {
+                MessageBox.Show("Para remover o registro você precisa alterar o status para INATIVO.",
+                                "Erro ao tentar excluir", MessageBoxButtons.OK,
+                                MessageBoxIcon.Error);
+            }
+            else if (txtNome.Text == "")
+            {
+                MessageBox.Show("Obrigatório informar o campo Nome.!",
+                                "Atenção", MessageBoxButtons.OK,
+                                MessageBoxIcon.Information);
+                txtNome.Focus();
+            }
+            else if (txtEmail.Text == "")
+            {
+                MessageBox.Show("Obrigatório informar o campo Email.!",
+                                "Atenção", MessageBoxButtons.OK,
+                                MessageBoxIcon.Information);
+                txtEmail.Focus();
+            }
+            else if (cbxPessoa.SelectedIndex == -1)
+            {
+                MessageBox.Show("Obrigatório informar o tipo de Pessoa.!",
+                                "Atenção", MessageBoxButtons.OK,
+                                MessageBoxIcon.Information);
+            }
+            else if (cbxPessoa.SelectedIndex == 0 && maskTxtCPF.Text.Length < 11)
+            {
+                MessageBox.Show("Obrigatório informar um CPF válido.!",
+                                "Atenção", MessageBoxButtons.OK,
+                                MessageBoxIcon.Information);
+                maskTxtCPF.Focus();
+            }
+            else if (cbxPessoa.SelectedIndex == 1 && maskTxtCNPJ.Text.Length < 14)
+            {
+                MessageBox.Show("Obrigatório informar um CNPJ válido.!",
+                                "Atenção", MessageBoxButtons.OK,
+                                MessageBoxIcon.Information);
+                maskTxtCNPJ.Focus();
+            }
+            else if (txtLograd.Text == "")
+            {
+                MessageBox.Show("Obrigatório informar o campo Logradouro.!",
+                                "Atenção", MessageBoxButtons.OK,
+                                MessageBoxIcon.Information);
+                txtLograd.Focus();
+            }
+            else if (txtCidade.Text == "")
+            {
+                MessageBox.Show("Obrigatório informar o campo Cidade.!",
+                                "Atenção", MessageBoxButtons.OK,
+                                MessageBoxIcon.Information);
+                txtCidade.Focus();
+            }
+            else if (maskTxtTel.Text == "")
+            {
+                MessageBox.Show("Obrigatório informar o campo Telefone.!",
+                                "Atenção", MessageBoxButtons.OK,
+                                MessageBoxIcon.Information);
+                maskTxtTel.Focus();
+            }
+            else if (maskTxtTel.Text.Length < 11)
+            {
+                MessageBox.Show("Obrigatório informar um Telefone válido.!",
+                                "Atenção", MessageBoxButtons.OK,
+                                MessageBoxIcon.Information);
+                maskTxtTel.Focus();
+            }
+            else if (txtNumero.Text == "")
+            {
+                MessageBox.Show("Obrigatório informar o campo Número do Logradouro.!",
+                                "Atenção", MessageBoxButtons.OK,
+                                MessageBoxIcon.Information);
+                txtNumero.Focus();
+            }
+            else if (txtBairro.Text == "")
+            {
+                MessageBox.Show("Obrigatório informar o campo Bairro.!",
+                                "Atenção", MessageBoxButtons.OK,
+                                MessageBoxIcon.Information);
+                txtBairro.Focus();
+            }
+            else if (maskTxtCEP.Text.Length < 8)
+            {
+                MessageBox.Show("Obrigatório informar o campo CEP.!",
+                                "Atenção", MessageBoxButtons.OK,
+                                MessageBoxIcon.Information);
+                maskTxtCEP.Focus();
+            }
+            else if (cbxUF.SelectedIndex == -1)
+            {
+                MessageBox.Show("Obrigatório informar o Estado.!",
+                                "Atenção", MessageBoxButtons.OK,
+                                MessageBoxIcon.Information);
+            }
+            else
+            {
+                DialogResult exclusao = MessageBox.Show("Você tem certeza que deseja remover este registro?",
+                                                        "Exclusão de registro", MessageBoxButtons.YesNo,
+                                                        MessageBoxIcon.Information);
+                if (exclusao == DialogResult.No)
+                {
+                    return;
+                }
+                else
+                {
+                    try
+                    {
+                        int status = Convert.ToInt32(lblCod.Text);
+                        string strSql = "update tbl_Cliente set ds_status = 0 where cd_Cliente = @status";
+
+                        cmd.CommandText = strSql;
+                        cmd.Connection = cn;
+
+                        cmd.Parameters.Add("@status", SqlDbType.Int).Value = status;
+
+                        cn.Open();
+                        cmd.ExecuteNonQuery();
+                        cmd.Parameters.Clear();
+
+                        MessageBox.Show("A exclusão foi executada com sucesso !!!.",
+                                        "Exclusão do Registro Concluida", MessageBoxButtons.OK,
+                                        MessageBoxIcon.Information);
+
+                        txtNome.Focus();
+                        limparCampos();
+                        desabilitaCampos();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                        cn.Close();
+                    }
+                    finally
+                    {
+                        cn.Close();
+                    }
+                }
             }
         }
     }
