@@ -30,6 +30,10 @@ namespace Livraria
             lblCodLivro.Visible = false;
             lblCateg.Visible = false;
             lblEdit.Visible = false;
+            lblCodCategoria.Visible = false;
+            lblCodCateg.Visible = false;
+            lblCodEditora.Visible = false;
+            lblCodEdit.Visible = false;
 
             txtTitulo.Enabled = false;
             txtQtdeEstoq.Enabled = false;
@@ -39,7 +43,7 @@ namespace Livraria
             txtPaginas.Enabled = false;
             txtEdit.Visible = false;
 
-            cbxCateg.Visible = false;
+            txtCateg.Visible = false;
 
             btnAlterar.Enabled = false;
             btnCancelar.Enabled = false;
@@ -89,6 +93,10 @@ namespace Livraria
             lblCodLivro.Visible = true;
             lblCateg.Visible = true;
             lblEdit.Visible = true;
+            lblCodCategoria.Visible = true;
+            lblCodCateg.Visible = true;
+            lblCodEditora.Visible = true;
+            lblCodEdit.Visible = true;
 
             txtTitulo.Enabled = true;
             txtQtdeEstoq.Enabled = true;
@@ -98,7 +106,10 @@ namespace Livraria
             txtPaginas.Enabled = true;
             txtEdit.Visible = true;
 
-            cbxCateg.Visible = true;
+            txtCateg.Enabled = false;
+            txtEdit.Enabled = false;
+
+            txtCateg.Visible = true;
 
             btnNovo.Enabled = false;
             btnSalvar.Enabled = false;
@@ -276,12 +287,6 @@ namespace Livraria
                                 MessageBoxIcon.Information);
                 txtPaginas.Focus();
             }
-            else if (cbxCateg.Text == "" && cbxCateg.SelectedIndex < 0)
-            {
-                MessageBox.Show("Obrigatório informar o campo Categoria.!",
-                               "Atenção", MessageBoxButtons.OK,
-                               MessageBoxIcon.Information);
-            }
             else
             {
                 try
@@ -307,9 +312,9 @@ namespace Livraria
                     cmd.Parameters.Add("@no_Isbn", SqlDbType.Char).Value = isbn;
                     cmd.Parameters.Add("@dt_AnoPublica", SqlDbType.Char).Value = ano;
                     cmd.Parameters.Add("@cdl", SqlDbType.Int).Value = codLivro;
-                    
 
                     cn.Open();
+
                     cmd.ExecuteNonQuery();
                     cmd.Parameters.Clear();
 
@@ -364,46 +369,9 @@ namespace Livraria
                 dgvLivro.DataSource = null;
             }
         }
-
-        private void preencheCbxCateg()
-        {
-            cn.Open();
-
-            try
-            {
-                cmd.CommandText = "select cd_Categoria, nm_Categoria from tbl_Categoria order by nm_Categoria desc";
-                SqlDataReader reader = cmd.ExecuteReader();
-                DataTable dtt = new DataTable();
-                // recebendo os dados do select
-                // preenchendo o datatable
-                dtt.Load(reader); 
-                DataRow row = dtt.NewRow(); // representa uma linha de dados em um datatable
-                row["nm_Categoria"] = ""; // para nao gerar valor nulo e, consequentemente, evitar erro de execuçao
-                //dtt.Rows.InsertAt(row, 0); // insere nova linha na coleçao no local especificado
-
-                this.cbxCateg.DataSource = dtt;
-                this.cbxCateg.ValueMember = "cd_Categoria";
-                this.cbxCateg.DisplayMember = "nm_Categoria";
-
-                reader.Close();
-                reader.Dispose(); // libera o objeto da memoria
-                
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-                cn.Close();
-            }
-            finally
-            {
-                cn.Close();
-            }
-        }
-
         private void carregaLivro()
         {
             manipularDados();
-            preencheCbxCateg();
 
             lblCodLivro.Text = dgvLivro.SelectedRows[0].Cells[0].Value.ToString();
             txtTitulo.Text = dgvLivro.SelectedRows[0].Cells[1].Value.ToString();
@@ -412,7 +380,9 @@ namespace Livraria
             txtQtdeEstoq.Text = dgvLivro.SelectedRows[0].Cells[4].Value.ToString();
             txtISBN.Text = dgvLivro.SelectedRows[0].Cells[5].Value.ToString();
             txtAno.Text = dgvLivro.SelectedRows[0].Cells[6].Value.ToString();
-            cbxCateg.Text = dgvLivro.SelectedRows[0].Cells[9].Value.ToString();
+            lblCodCateg.Text = dgvLivro.SelectedRows[0].Cells[7].Value.ToString();
+            lblCodEdit.Text = dgvLivro.SelectedRows[0].Cells[8].Value.ToString();
+            txtCateg.Text = dgvLivro.SelectedRows[0].Cells[9].Value.ToString();
             txtEdit.Text = dgvLivro.SelectedRows[0].Cells[10].Value.ToString();
         }
 

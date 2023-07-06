@@ -47,5 +47,10 @@ namespace Livraria
         {
             frmCategoria1.BringToFront();
         }
+
+        private void btnPedido_Click(object sender, EventArgs e)
+        {
+            frmPedidos1.BringToFront();
+        }
     }
 }

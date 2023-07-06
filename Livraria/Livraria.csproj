@@ -51,6 +51,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="db_LivrariaDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>db_LivrariaDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="db_LivrariaDataSet1.cs">
       <DependentUpon>db_LivrariaDataSet1.xsd</DependentUpon>
     </Compile>
@@ -95,6 +100,12 @@
     <Compile Include="frmMenu.Designer.cs">
       <DependentUpon>frmMenu.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmPedidos.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="frmPedidos.Designer.cs">
+      <DependentUpon>frmPedidos.cs</DependentUpon>
+    </Compile>
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -127,6 +138,9 @@
     <EmbeddedResource Include="frmMenu.resx">
       <DependentUpon>frmMenu.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmPedidos.resx">
+      <DependentUpon>frmPedidos.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
@@ -143,6 +157,17 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="db_LivrariaDataSet.xsc">
+      <DependentUpon>db_LivrariaDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="db_LivrariaDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>db_LivrariaDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="db_LivrariaDataSet.xss">
+      <DependentUpon>db_LivrariaDataSet.xsd</DependentUpon>
+    </None>
     <None Include="db_LivrariaDataSet1.xsc">
       <DependentUpon>db_LivrariaDataSet1.xsd</DependentUpon>
     </None>

@@ -5,9 +5,11 @@ D:\Gustavo\Projetos\Livraria\Livraria\obj\Debug\Livraria.csproj.AssemblyReferenc
 D:\Gustavo\Projetos\Livraria\Livraria\obj\Debug\Livraria.csproj.SuggestedBindingRedirects.cache
 D:\Gustavo\Projetos\Livraria\Livraria\obj\Debug\Livraria.frmCategoria.resources
 D:\Gustavo\Projetos\Livraria\Livraria\obj\Debug\Livraria.frmCliente.resources
+D:\Gustavo\Projetos\Livraria\Livraria\obj\Debug\Livraria.frmEditora.resources
 D:\Gustavo\Projetos\Livraria\Livraria\obj\Debug\Livraria.frmFuncionario.resources
 D:\Gustavo\Projetos\Livraria\Livraria\obj\Debug\Livraria.frmLivro.resources
 D:\Gustavo\Projetos\Livraria\Livraria\obj\Debug\Livraria.frmMenu.resources
+D:\Gustavo\Projetos\Livraria\Livraria\obj\Debug\Livraria.frmPedidos.resources
 D:\Gustavo\Projetos\Livraria\Livraria\obj\Debug\Livraria.Login.resources
 D:\Gustavo\Projetos\Livraria\Livraria\obj\Debug\Livraria.principal.resources
 D:\Gustavo\Projetos\Livraria\Livraria\obj\Debug\Livraria.Properties.Resources.resources
@@ -15,4 +17,3 @@ D:\Gustavo\Projetos\Livraria\Livraria\obj\Debug\Livraria.csproj.GenerateResource
 D:\Gustavo\Projetos\Livraria\Livraria\obj\Debug\Livraria.csproj.CoreCompileInputs.cache
 D:\Gustavo\Projetos\Livraria\Livraria\obj\Debug\Livraria.exe
 D:\Gustavo\Projetos\Livraria\Livraria\obj\Debug\Livraria.pdb
-D:\Gustavo\Projetos\Livraria\Livraria\obj\Debug\Livraria.frmEditora.resources

@@ -43,11 +43,12 @@
             this.btnFunc = new System.Windows.Forms.Button();
             this.pneLogo = new System.Windows.Forms.Panel();
             this.lbl_LivLeitura = new System.Windows.Forms.Label();
+            this.frmCategoria1 = new Livraria.frmCategoria();
+            this.frmLivro1 = new Livraria.frmLivro();
             this.frmCliente1 = new Livraria.frmCliente();
             this.frmFuncionario1 = new Livraria.frmFuncionario();
             this.principal1 = new Livraria.principal();
-            this.frmLivro1 = new Livraria.frmLivro();
-            this.frmCategoria1 = new Livraria.frmCategoria();
+            this.frmPedidos1 = new Livraria.frmPedidos();
             this.pneMenu.SuspendLayout();
             this.pneLogo.SuspendLayout();
             this.SuspendLayout();
@@ -152,6 +153,7 @@
             this.btnPedido.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnPedido.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnPedido.UseVisualStyleBackColor = true;
+            this.btnPedido.Click += new System.EventHandler(this.btnPedido_Click);
             // 
             // btnAutor
             // 
@@ -313,6 +315,20 @@
             this.lbl_LivLeitura.TabIndex = 1;
             this.lbl_LivLeitura.Text = "Livraria\r\n   Leitura\r\n";
             // 
+            // frmCategoria1
+            // 
+            this.frmCategoria1.Location = new System.Drawing.Point(219, 0);
+            this.frmCategoria1.Name = "frmCategoria1";
+            this.frmCategoria1.Size = new System.Drawing.Size(848, 620);
+            this.frmCategoria1.TabIndex = 5;
+            // 
+            // frmLivro1
+            // 
+            this.frmLivro1.Location = new System.Drawing.Point(219, 0);
+            this.frmLivro1.Name = "frmLivro1";
+            this.frmLivro1.Size = new System.Drawing.Size(848, 620);
+            this.frmLivro1.TabIndex = 4;
+            // 
             // frmCliente1
             // 
             this.frmCliente1.Location = new System.Drawing.Point(219, -8);
@@ -334,25 +350,19 @@
             this.principal1.Size = new System.Drawing.Size(843, 581);
             this.principal1.TabIndex = 1;
             // 
-            // frmLivro1
+            // frmPedidos1
             // 
-            this.frmLivro1.Location = new System.Drawing.Point(219, 0);
-            this.frmLivro1.Name = "frmLivro1";
-            this.frmLivro1.Size = new System.Drawing.Size(848, 620);
-            this.frmLivro1.TabIndex = 4;
-            // 
-            // frmCategoria1
-            // 
-            this.frmCategoria1.Location = new System.Drawing.Point(219, 0);
-            this.frmCategoria1.Name = "frmCategoria1";
-            this.frmCategoria1.Size = new System.Drawing.Size(848, 620);
-            this.frmCategoria1.TabIndex = 5;
+            this.frmPedidos1.Location = new System.Drawing.Point(219, 0);
+            this.frmPedidos1.Name = "frmPedidos1";
+            this.frmPedidos1.Size = new System.Drawing.Size(848, 620);
+            this.frmPedidos1.TabIndex = 6;
             // 
             // frmMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1062, 581);
+            this.Controls.Add(this.frmPedidos1);
             this.Controls.Add(this.frmCategoria1);
             this.Controls.Add(this.frmLivro1);
             this.Controls.Add(this.frmCliente1);
@@ -394,5 +404,6 @@
         private frmCliente frmCliente1;
         private frmLivro frmLivro1;
         private frmCategoria frmCategoria1;
+        private frmPedidos frmPedidos1;
     }
 }

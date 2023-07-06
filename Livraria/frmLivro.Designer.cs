@@ -52,12 +52,16 @@
             this.txtTitulo = new System.Windows.Forms.TextBox();
             this.lblTitulo = new System.Windows.Forms.Label();
             this.lblLivro = new System.Windows.Forms.Label();
-            this.lblCateg = new System.Windows.Forms.Label();
             this.lblEdit = new System.Windows.Forms.Label();
             this.txtEdit = new System.Windows.Forms.TextBox();
-            this.cbxCateg = new System.Windows.Forms.ComboBox();
             this.db_LivrariaDataSet1 = new Livraria.db_LivrariaDataSet1();
             this.dbLivrariaDataSet1BindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.lblCodCategoria = new System.Windows.Forms.Label();
+            this.lblCateg = new System.Windows.Forms.Label();
+            this.txtCateg = new System.Windows.Forms.TextBox();
+            this.lblCodEditora = new System.Windows.Forms.Label();
+            this.lblCodEdit = new System.Windows.Forms.Label();
+            this.lblCodCateg = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLivro)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.db_LivrariaDataSet1)).BeginInit();
@@ -310,17 +314,6 @@
             this.lblLivro.TabIndex = 163;
             this.lblLivro.Text = "Livros";
             // 
-            // lblCateg
-            // 
-            this.lblCateg.AutoSize = true;
-            this.lblCateg.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCateg.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.lblCateg.Location = new System.Drawing.Point(55, 294);
-            this.lblCateg.Name = "lblCateg";
-            this.lblCateg.Size = new System.Drawing.Size(95, 24);
-            this.lblCateg.TabIndex = 191;
-            this.lblCateg.Text = "Categoria:";
-            // 
             // lblEdit
             // 
             this.lblEdit.AutoSize = true;
@@ -341,19 +334,6 @@
             this.txtEdit.Size = new System.Drawing.Size(263, 29);
             this.txtEdit.TabIndex = 195;
             // 
-            // cbxCateg
-            // 
-            this.cbxCateg.DataSource = this.db_LivrariaDataSet1;
-            this.cbxCateg.DisplayMember = "tbl_Categoria.nm_Categoria";
-            this.cbxCateg.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbxCateg.FormattingEnabled = true;
-            this.cbxCateg.Location = new System.Drawing.Point(166, 294);
-            this.cbxCateg.Name = "cbxCateg";
-            this.cbxCateg.Size = new System.Drawing.Size(263, 32);
-            this.cbxCateg.TabIndex = 196;
-            this.cbxCateg.TabStop = false;
-            this.cbxCateg.ValueMember = "tbl_Categoria.cd_Categoria";
-            // 
             // db_LivrariaDataSet1
             // 
             this.db_LivrariaDataSet1.DataSetName = "db_LivrariaDataSet1";
@@ -364,11 +344,77 @@
             this.dbLivrariaDataSet1BindingSource.DataSource = this.db_LivrariaDataSet1;
             this.dbLivrariaDataSet1BindingSource.Position = 0;
             // 
+            // lblCodCategoria
+            // 
+            this.lblCodCategoria.AutoSize = true;
+            this.lblCodCategoria.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCodCategoria.ForeColor = System.Drawing.Color.Red;
+            this.lblCodCategoria.Location = new System.Drawing.Point(510, 294);
+            this.lblCodCategoria.Name = "lblCodCategoria";
+            this.lblCodCategoria.Size = new System.Drawing.Size(104, 24);
+            this.lblCodCategoria.TabIndex = 197;
+            this.lblCodCategoria.Text = "Cod Categ:";
+            // 
+            // lblCateg
+            // 
+            this.lblCateg.AutoSize = true;
+            this.lblCateg.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCateg.ForeColor = System.Drawing.SystemColors.Desktop;
+            this.lblCateg.Location = new System.Drawing.Point(55, 294);
+            this.lblCateg.Name = "lblCateg";
+            this.lblCateg.Size = new System.Drawing.Size(95, 24);
+            this.lblCateg.TabIndex = 191;
+            this.lblCateg.Text = "Categoria:";
+            // 
+            // txtCateg
+            // 
+            this.txtCateg.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCateg.Location = new System.Drawing.Point(166, 294);
+            this.txtCateg.MaxLength = 20;
+            this.txtCateg.Name = "txtCateg";
+            this.txtCateg.Size = new System.Drawing.Size(263, 29);
+            this.txtCateg.TabIndex = 199;
+            // 
+            // lblCodEditora
+            // 
+            this.lblCodEditora.AutoSize = true;
+            this.lblCodEditora.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCodEditora.ForeColor = System.Drawing.Color.Red;
+            this.lblCodEditora.Location = new System.Drawing.Point(527, 338);
+            this.lblCodEditora.Name = "lblCodEditora";
+            this.lblCodEditora.Size = new System.Drawing.Size(87, 24);
+            this.lblCodEditora.TabIndex = 200;
+            this.lblCodEditora.Text = "Cod Edit:";
+            // 
+            // lblCodEdit
+            // 
+            this.lblCodEdit.AutoSize = true;
+            this.lblCodEdit.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCodEdit.ForeColor = System.Drawing.Color.Red;
+            this.lblCodEdit.Location = new System.Drawing.Point(620, 338);
+            this.lblCodEdit.Name = "lblCodEdit";
+            this.lblCodEdit.Size = new System.Drawing.Size(0, 24);
+            this.lblCodEdit.TabIndex = 201;
+            // 
+            // lblCodCateg
+            // 
+            this.lblCodCateg.AutoSize = true;
+            this.lblCodCateg.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCodCateg.ForeColor = System.Drawing.Color.Red;
+            this.lblCodCateg.Location = new System.Drawing.Point(620, 294);
+            this.lblCodCateg.Name = "lblCodCateg";
+            this.lblCodCateg.Size = new System.Drawing.Size(0, 24);
+            this.lblCodCateg.TabIndex = 202;
+            // 
             // frmLivro
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.cbxCateg);
+            this.Controls.Add(this.lblCodCateg);
+            this.Controls.Add(this.lblCodEdit);
+            this.Controls.Add(this.lblCodEditora);
+            this.Controls.Add(this.txtCateg);
+            this.Controls.Add(this.lblCodCategoria);
             this.Controls.Add(this.txtEdit);
             this.Controls.Add(this.lblEdit);
             this.Controls.Add(this.lblCateg);
@@ -432,11 +478,15 @@
         private System.Windows.Forms.TextBox txtTitulo;
         private System.Windows.Forms.Label lblTitulo;
         private System.Windows.Forms.Label lblLivro;
-        private System.Windows.Forms.Label lblCateg;
         private System.Windows.Forms.Label lblEdit;
         private System.Windows.Forms.TextBox txtEdit;
-        private System.Windows.Forms.ComboBox cbxCateg;
         private db_LivrariaDataSet1 db_LivrariaDataSet1;
         private System.Windows.Forms.BindingSource dbLivrariaDataSet1BindingSource;
+        private System.Windows.Forms.Label lblCodCategoria;
+        private System.Windows.Forms.Label lblCateg;
+        private System.Windows.Forms.TextBox txtCateg;
+        private System.Windows.Forms.Label lblCodEditora;
+        private System.Windows.Forms.Label lblCodEdit;
+        private System.Windows.Forms.Label lblCodCateg;
     }
 }
